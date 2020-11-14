@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'include/navbar.html' %}
+    {% for mes in messages %}
+        {{ mes }}
+        <br>
+    {% endfor %}
+    <h1>Выберете тему для решения теста, {{ request.user }}</h1>
+    <a href="{% url 'solved_tests' request.user.id %}">Мои решенные тесты</a>
+    <br>
+    <br>
+    <div>
+        {% for top in topic %}
+            <a href="{% url 'topic' top.id %}">{{ top.name }}</a>
+            <br>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

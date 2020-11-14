@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'include/navbar.html' %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for ans in answer %}
+            <li>
+                <input type="radio" name="answer" value="{{ ans.id }}">
+                <span>{{ ans.answer }}</span>
+                <br>
+            </li>
+        {% endfor %}
+        <button type="submit">Ответить</button>
+    </form>
+    <br>
+    <a href="{% url 'testing' question.id %}">Вернуться к заданиям</a>
+{% endblock content %}

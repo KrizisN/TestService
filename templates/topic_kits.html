@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'include/navbar.html' %}
+    <h1>Выберайте подтему</h1>
+    {% for mes in messages %}
+        {{ mes }}
+          <br>
+    {% endfor %}
+    {% for tests in test_kits %}
+        <a href="{% url 'test_answer' tests.id %}">{{ tests.subtest_test }}</a>
+    {% endfor %}
+
+
+
+{% endblock content %}

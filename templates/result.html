@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+     {% include 'include/navbar.html' %}
+    <p>Ваш результат: {{ user_correct_answer }}\{{ user_results }}</p>
+    <br>
+    <p>В процентах - {{ per_cent_of_correct_answer }}%</p>
+    <a href="{% url 'topic' test_kits.id %}">Вернуться к выбору подтемы</a>
+    <br>
+    <a href="{% url 'solved_tests' request.user.id %}">Мои решенные тесты</a>
+{% endblock content %}

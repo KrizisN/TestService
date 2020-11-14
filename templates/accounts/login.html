@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% block content %}
+    <form method="POST" action="" class="d-flex justify-content-center">
+        <div class="d-flex flex-column col-md-4">
+            {% csrf_token %}
+            <br>
+            <input type="text" name="username" placeholder="Username..." class="form">
+            <br>
+            <input type="password" name="password" placeholder="Password..." class="form">
+
+            {% for mes in messages %}
+                {{ mes }}
+            {% endfor %}
+        <br>
+        <input class="mt-3" type="submit" name="CreateUser">
+        </div>
+    </form>
+{% endblock content %}

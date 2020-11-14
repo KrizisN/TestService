@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'include/navbar.html' %}
+    <h1>Вы готовы к тесту? Учтите, на тест даётся 1 попытка</h1>
+    <a href="{% url 'testing' test_kits.id %}">Конечно</a>
+    <br>
+    <a href="{% url 'topic' topic.id %}">Назад</a>
+{% endblock %}

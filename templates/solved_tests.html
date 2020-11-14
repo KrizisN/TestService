@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'include/navbar.html' %}
+    {% if all_solved_tests == 0 %}
+        <h1>Вы ещё не решали тесты</h1>
+    {% else %}
+        {% for test_kits in all_solved_tests %}
+            <a href="{% url 'result' request.user.id test_kits.id %}">{{ test_kits }}</a>
+            <form action="{% url 'delete_solved_tests' request.user.id test_kits.id %}">
+                {% csrf_token %}
+                <button type="submit">Попробовать снова пройти тест</button>
+                <br>
+                <br>
+            </form>
+        {% endfor %}
+    {% endif %}
+    <h5>Если у Вас недостаточно прав - вы не сможете пройти тест снова:(</h5>
+    <h6>Также если вы начнёте проходить тест снова,то старый результат обнулится</h6>
+
+{% endblock content %}

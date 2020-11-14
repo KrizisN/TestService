@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'include/navbar.html' %}
+     {% for mes in messages %}
+                {{ mes }}
+            {% endfor %}
+    <br>
+    {% for test in que %}
+        <a href="{% url 'test_now' test.id %}">{{ test.questions }}</a>
+        <br>
+        <br>
+        <br>
+    {% endfor %}
+    <a href={% url 'result' user.id topic.id %}>Узнать результат</a>
+{% endblock content %}
