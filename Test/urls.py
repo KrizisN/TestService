@@ -13,4 +13,5 @@ urlpatterns = [
     path('result/<int:pk>/<int:pk2>', views.result, name='result'),
     path('solved_tests/<int:pk>', views.solved_tests, name='solved_tests'),
     path('delete_solved_tests/<int:pk>/<int:pk2>', views.delete_test_of_student, name='delete_solved_tests'),
+    path('all_result/', views.all_results, name='all_result')
 ]

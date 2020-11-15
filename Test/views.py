@@ -149,3 +149,9 @@ def delete_test_of_student(request, pk, pk2):
     user_results = UsersTest.objects.filter(user=pk, test_kits__test_kits_id=pk2)
     user_results.delete()
     return redirect('testing', pk2)
+
+
+def all_results(request):
+    all_result = UsersResults.objects.all()
+    context = {'all_result': all_result}
+    return render(request, 'all_results.html', context)
